@@ -1,0 +1,116 @@
+/* FONTS */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap");
+/* CUSTOM PROPERTIES */
+:root{
+  /* colors */
+  --bg-color: hsl(240, 4%, 4%);
+  --text-color: hsl(0, 0%, 86%);
+  --bg-color-header: hsl(0, 3%, 11%);
+
+}
+/* RESET / BASIC STYLES */
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html{
+  font-family: Athelas, serif;
+  font-size: 62.5%; 
+  font-weight: regular;
+  /* 62.5% of 16px browser font size is 10px */
+  /* 12px in rems: 12 / 16 = 0.75rem */
+  /* 16px in rems: 16 / 16 = 1rem */
+  line-height: 1.5;
+  scroll-behavior: smooth;
+  color: var(--text-color);
+}
+body{
+  background-color: var(--bg-color);
+  font-size: 1.6rem;
+}
+ul{
+  list-style: none;
+}
+a{
+  color: var(--text-color);
+  text-decoration: none;
+}
+img{
+  max-width: 100%;
+  display: block;
+}
+section{
+  padding-block: 6rem;
+}
+.container{
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  /* height: 100%; */
+}
+/* REUSABLE CLASSES */
+/* ANIMATIONS */
+@keyframes slideRightToLeft{
+  0%{
+    transform: translateX(-100px);
+  }
+  100%{
+    transform: translateX(0);
+  }
+}
+
+/* ------------------------------------------------------*/
+
+
+
+
+/* PROJECT STYLES */
+/*  ---------- HEADER ---------- */
+header{
+  background-color: var(--bg-color-header);
+  height: 6vh;
+}
+
+/*  ---------- NAVIGATION ---------- */
+nav{
+  height: 100%;
+}
+.nav-list{
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  height: 100%;
+  gap: 3.2rem;
+}
+.nav-list li:nth-child(1){
+  margin-right: auto;
+}
+.logo{
+  width: 55px;
+}
+/* ---------- PHOTO GALLERY ---------- */
+.
+/*  ---------- FOOTER ---------- */
+.copyright{
+  font-size: x-small;
+  color: rgb(81, 81, 82);
+  text-align: center;
+}
+
+/* MOBILE (FIRST) -> [SCREEN SIZE: 375px] */
+/* @media (min-width: 375px){} */
+
+/* LARGE MOBILES -> [SCREEN SIZE: 425px] */
+/* @media (min-width: 425px){} */
+
+/* SMALL TABLET STYLES -> [SCREENSIZE: 768px] */
+/* @media (min-width: 768px){} */
+
+/* LARGE TABLETS & LAPTOP STYLES -> [SCREENSIZE: 1024px] */
+/* @media (min-width: 1024px){} */
+
+/* LARGE LAPTOP & DESKTOP STYLES -> [SCREENSIZE: 1440px] */
+/* @media (min-width: 1440px){} */
+
+
