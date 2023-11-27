@@ -1,7 +1,13 @@
 /* FONTS */
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap");
 /* CUSTOM PROPERTIES */
+:root{
+  /* colors */
+  --bg-color: hsl(240, 4%, 4%);
+  --text-color: hsl(0, 0%, 86%);
+  --bg-color-header: hsl(0, 3%, 11%);
 
+}
 /* RESET / BASIC STYLES */
 *{
   margin: 0;
@@ -9,46 +15,60 @@
   box-sizing: border-box;
 }
 html{
-  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-family: Athelas, serif;
   font-size: 62.5%; 
+  font-weight: regular;
   /* 62.5% of 16px browser font size is 10px */
   /* 12px in rems: 12 / 16 = 0.75rem */
   /* 16px in rems: 16 / 16 = 1rem */
   line-height: 1.5;
   scroll-behavior: smooth;
+  color: var(--text-color);
 }
 body{
-  background-color: rgb(13, 13, 14);
-  /* height: 100vh; */
-  /* display: flex;
-  justify-content: center;
-  align-items: center; */
-  font-size: 1.8rem;
+  background-color: var(--bg-color);
+  font-size: 1.6rem;
+}
+ul{
+  list-style: none;
 }
 a{
-  color: white;
+  color: var(--text-color);
   text-decoration: none;
 }
 img{
   max-width: 100%;
   display: block;
 }
+section{
+  padding-block: 6rem;
+}
 .container{
   max-width: 1140px;
-  /* min-width: 500px; */
   margin: 0 auto;
   padding: 0 1rem;
-  height: 100%;
+  /* height: 100%; */
 }
 /* REUSABLE CLASSES */
 /* ANIMATIONS */
+@keyframes slideRightToLeft{
+  0%{
+    transform: translateX(-100px);
+  }
+  100%{
+    transform: translateX(0);
+  }
+}
+
 /* ------------------------------------------------------*/
 
-/* PROJECT STYLES */
 
+
+
+/* PROJECT STYLES */
 /*  ---------- HEADER ---------- */
 header{
-  background-color: black;
+  background-color: var(--bg-color-header);
   height: 6vh;
 }
 
@@ -63,13 +83,14 @@ nav{
   height: 100%;
   gap: 3.2rem;
 }
-/* main{
-  height: 100vh;
-} */
-.logo{
-  width: 20%;
+.nav-list li:nth-child(1){
+  margin-right: auto;
 }
-
+.logo{
+  width: 55px;
+}
+/* ---------- PHOTO GALLERY ---------- */
+.
 /*  ---------- FOOTER ---------- */
 .copyright{
   font-size: x-small;
