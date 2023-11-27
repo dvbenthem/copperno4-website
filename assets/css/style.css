@@ -1,5 +1,6 @@
 /* FONTS */
-/* @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap"); */
+
+
 /* CUSTOM PROPERTIES */
 :root{
   /* colors */
@@ -133,20 +134,5 @@ nav{
   color: rgb(81, 81, 82);
   text-align: center;
 }
-
-/* MOBILE (FIRST) -> [SCREEN SIZE: 375px] */
-/* @media (min-width: 375px){} */
-
-/* LARGE MOBILES -> [SCREEN SIZE: 425px] */
-/* @media (min-width: 425px){} */
-
-/* SMALL TABLET STYLES -> [SCREENSIZE: 768px] */
-/* @media (min-width: 768px){} */
-
-/* LARGE TABLETS & LAPTOP STYLES -> [SCREENSIZE: 1024px] */
-/* @media (min-width: 1024px){} */
-
-/* LARGE LAPTOP & DESKTOP STYLES -> [SCREENSIZE: 1440px] */
-/* @media (min-width: 1440px){} */
 
 
