@@ -6,73 +6,98 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="">
-  <meta name="keywords" content="">
-  <meta name="author" content="Danny van Benthem">
+  <meta name="keywords" content="restaurant, koper, number, 4, copper, eten, vibes, relax">
+  <meta name="author" content="dvb">
   <!-- FAVICON -->
   <link rel="shortcut icon" href="assets/images/favicon.ico" type="image/x-icon">
   <link rel="icon" href="assets/images/favicon.ico" sizes="32x32" type="image/x-icon">
   <!-- FONTS -->
-  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Saira+Extra+Condensed:wght@100;400;800&family=Unna:wght@400;700&display=swap" rel="stylesheet">
   <!-- ICON LIBRARY (remixicons.com)-->
   <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
   <!-- PROJECT STYLES CSS -->
   <link rel="stylesheet" href="assets/css/style.css">
   <!-- JAVASCRIPT -->
-  <script src="app.js" defer></script>
+  <script src="assets/js/app.js" defer></script>
 
 </head>
 <body>
   <header>
     <div class="container">
-      <nav>
+      <nav class="nav">
         <ul class="nav-list">
-          <li>
-            <a href="index.html">
-              <img class="logo" src="assets/images/logo.png" alt="Logo copper no.4">
-
-            </a>
+          <li class="nav-item">
+            <a href="#">Home</a>
           </li>
-          <li><a href="#">Home</a></li>
-          <li><a href="#">Openingstijden</a></li>
-          <li><a href="#">Contact</a></li>
+          <li class="nav-item">
+            <a href="#">Openingstijden</a>
+          </li>
+          <li class="nav-item">
+            <a href="#">Contact</a>
+          </li>
         </ul>
       </nav>
+      <!-- MOBILE NAVIGATION -->
+      <div class="mobile-nav">
+        <i class="ri-menu-line hamburger"></i>
+        <i class="ri-close-line close"></i>
+      </div>
     </div>
   </header>
 
-  <main>
-    <!-- OPENINGHOURS -->
-    <section class="openinghours">
-      <p>
-        Vrijdag tot en met zondag
+  <div class="intro">
+    <div class="container">
+      <img class="intro-logo" src="assets/images/copperno4-logo.png" alt="logo">
+      <p class="intro-content">
+        Welcome to Copper number 4
+        <span>Grab a chair, eat, drink & vibe</span>
       </p>
-    </section>
+      <button class="btn btn-brons">Reserveer</button>
+    </div>
+  </div>
 
-    <!-- PHOTO GALLERY -->
-    <section class="photo-gallery">
-      <div class="gallery">
-        <div><img src="assets/images/afbeelding01.jpg" alt="Food01"></div>
-        <div><img src="assets/images/afbeelding02.jpg" alt="Food02"></div>
-        <div><img src="assets/images/afbeelding03.jpg" alt="Food03"></div>
-        <div><img src="assets/images/afbeelding04.jpg" alt="Food04"></div>
-        <div><img src="assets/images/afbeelding05.jpg" alt="Food05"></div>
-        <div><img src="assets/images/afbeelding06.jpg" alt="Food06"></div>
-      </div>
-    </section>
+  <main style="height: 600px;">
+    <div class="container">
+      <!-- OPENINGHOURS -->
+      <h2>Openingstijden:</h2>
+      <ul>
+        <li>- Maandag: Gesloten</li>
+        <li>- Dinsdag: Gesloten</li>
+        <li>- Woensdag: Gesloten</li>
+        <li>- Donderdag: 17:00 - 22:00 uur</li>
+        <li>- Vrijdag: 17:00 - 22:00 uur</li>
+        <li>- Zaterdag: 17:00 - 22:00 uur</li>
+        <li>- Zondag: 17:00 - 22:00 uur</li>
+      </ul>
+    </div>
   </main>
-  
+
+  <!-- FOOTER -->
   <footer>
-
-    <p>Contact informatie:</p>
-    <p>
-      jfkdlsafldskjldklsfj
-    </p>
-
-    <ul class="social-media">
-      <li><i class="ri-facebook-fill"></i></li>
-      <li><i class="ri-instagram-fill"></i></li>
-    </ul>
-    <p class="copyright">&copy;2023 dvb | All Rights Reserved</p>
+    <div class="container">
+      <h2>Heb je een vraag? Laat het ons weten:</h2>
+      <form class="question">
+        <input type="text" required placeholder="Naam">
+        <input type="text" required placeholder="E-mail">
+        <textarea name="questing" id="" cols="40" rows="5" placeholder="Je vraag"></textarea>
+        <button type="submit" class="btn btn-footer">Verstuur</button>
+      </form>
+      <ul class="social-media">
+        <li>
+          <a href="https://www.facebook.com/p/Copper-n4-61553357887780/" target="_blank">
+            <i class="ri-facebook-fill"></i>
+          </a>
+        </li>
+        <li>
+          <a href="tel:0452083351">
+            <i class="ri-phone-fill phonenumber"></i>
+          </a>
+        </li>
+      </ul>
+      <p class="copyright">&copy;2023 dvb | All Rights Reserved</p>
+    </div>
   </footer>
 </body>
 </html>
