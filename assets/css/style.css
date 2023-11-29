@@ -74,11 +74,9 @@ section{
 /* ANIMATIONS */
 @keyframes slideFromTop{
   0%{
-    /* opacity: 0; */
     transform: translateY(-50px);
   }
   100%{
-    /* opacity: 1; */
     transform: translateY(0);
   }
 }
@@ -101,18 +99,15 @@ header{
   position: fixed;
   width: 100%;
   top: 0;
-  height: 65px;
-  background-color: hsla(0, 3%, 11%, .90);
+  height: 0;
   z-index: 100;
-
-  /* animation-name: slideFromTop;
-  animation-duration: 750ms; 
-  animation-timing-function: ease;
-  animation-delay: 1200ms;
-  animation-fill-mode: backwards; */
+  background-color: hsla(0, 3%, 11%, .90);
 }
+header.active{
+  height: 65px;
+}
+
 nav{
-  /* background-color: var(--bg-color); */
   display: none;
   height: 65px;
 }
