@@ -1,0 +1,51 @@
+/* 320px — 480px: Mobile devices */
+@media screen and (max-width: 480px) {
+
+}
+
+/* Low-Resolution Tablets and iPads max-width: 767px */
+@media (min-width: 481px) and (max-width: 768px) {
+
+
+}
+
+
+
+
+/* Tablets iPads portrait mode max-width: 1024px */
+@media (min-width: 768px) and (max-width: 1279px) {
+  .mobile-nav .hamburger{
+    display: none;
+  }
+  nav{
+    display: block;
+  }
+  .nav-item a{
+    font-size: 2rem;
+  }
+
+  /* ----- INTRO SECTION ----- */
+  .intro-logo{
+    width: 300px;
+  }
+  .intro-content{
+    font-size: 3.2rem;
+  }
+}
+
+/* Desktops max-width: 1280px */
+@media (min-width: 1280px) {
+  html{
+    background-color: black ;
+  }
+  body > *{
+    display: none;
+  }
+  body::after{
+    content: "Best viewed on small size devices";
+    color: #fff;
+    font-size: 5rem;
+  }
+}
+
+/* Huge size (Larger screen) max-width: 1281px and greater */
