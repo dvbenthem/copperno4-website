@@ -1,3 +1,29 @@
+@font-face {
+  font-family: "Unna";
+  src: url(/assets/fonts/unna/Unna-Regular.ttf);
+  font-weight: 400;
+}
+@font-face {
+  font-family: "Saira";
+  src: url(/assets/fonts/saira/SairaExtraCondensed-Thin.ttf);
+  font-weight: 100;
+}
+@font-face {
+  font-family: "Saira";
+  src: url(/assets/fonts/saira/SairaExtraCondensed-Regular.ttf);
+  font-weight: 400;
+}
+@font-face {
+  font-family: "Saira";
+  src: url(/assets/fonts/saira/SairaExtraCondensed-Medium.ttf);
+  font-weight: 500;
+}
+@font-face {
+  font-family: "Saira";
+  src: url(/assets/fonts/saira/SairaExtraCondensed-Bold.ttf);
+  font-weight: 700;
+}
+
 /* CUSTOM PROPERTIES */
 :root{
   /* colors */
@@ -12,8 +38,8 @@
   --accent-color3: #454644;
 
   /* font-family */
-  --body-txt: 'Saira Extra Condensed', sans-serif;
-  --heading-txt: 'Unna', serif;
+  --body-txt: "Saira", sans-serif;
+  --heading-txt: "Unna", serif;
 }
 
 /* RESET / BASIC STYLES */
@@ -24,6 +50,7 @@
 }
 html{
   font-family: var(--body-txt);
+  font-weight: 400;
   font-size: 62.5%; 
   /* 62.5% of 16px browser font size is 10px */
   /* 12px in rems: 12 / 16 = 0.75rem */
@@ -35,6 +62,14 @@ html{
 body{
   background-color: var(--bg-color-header);
   font-size: 1.6rem;
+}
+h2{
+  font-family: var(--heading-txt);
+  font-size: 2.8rem;
+  text-transform: uppercase;
+}
+h4{
+  font-weight: 100;
 }
 ul{
   list-style: none;
@@ -75,29 +110,10 @@ section{
   align-items: center;
 }
 
-/* ANIMATIONS */
-@keyframes slideFromTop{
-  0%{
-    transform: translateY(-50px);
-  }
-  100%{
-    transform: translateY(0);
-  }
-}
-
-@keyframes fadeIn{
-  0%{
-    opacity: 0;
-  }
-  100%{
-    opacity: 1;
-  }
-}
-
 
 /* ------------------------------------------------------*/
 
-/* PROJECT STYLES - MOBILE FIRST < 600px */
+/* PROJECT STYLES - MOBILE FIRST */
 /* ----- HEADER SECTION ----- */
 header{
   position: fixed;
@@ -106,7 +122,7 @@ header{
   /* height: 0; */
   z-index: 100;
   height: 65px;
-  background-color: hsla(0, 3%, 11%, .90);
+  /* background-color: hsla(0, 3%, 11%, .90); */
 }
 /* header.active{
 } */
@@ -122,9 +138,8 @@ nav{
   gap: 2rem;
   height: 100%;
 }
-.list-item a{
-  font-size: 1.8rem;
-}
+
+
 /* MOBILE NAVIGATION */
 .mobile-nav{
   display: flex;
@@ -148,12 +163,13 @@ nav{
 
 /* ----- INTRO SECTION ----- */
 .intro .container{
+  font-family: "Unna";
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
+  justify-content: center;
   align-items: center;
-  height: 100%;
-  width: 100%;
+  min-height: 100vh;
+  /* width: 100%; */
   background-image: url("../images/afbeelding03.jpg");
   background-position: center;
   background-repeat: no-repeat;
@@ -168,12 +184,14 @@ nav{
 .intro-logo{
   width: 200px;
   height: auto;
-  margin-bottom: -8rem;
+  /* margin-bottom: -8rem; */
 }
 .intro-content{
   text-align: center;
   font-size: 2.8rem;
-  letter-spacing: 1px;
+  /* letter-spacing: 1px; */
+  margin-block-end: 10rem;
+  margin-block-start: 4rem;
 }
 .intro-content span{
   display: block;
@@ -181,19 +199,70 @@ nav{
 }
 
 /* ----- OPENINGHOURS ----- */
-table{
-  width: 200px;
-  border: 1px solid
-}
-th{
-  font-size: 4rem;
+.openinghours li:not(.not-closed){
+  border: 2px solid var(--accent-color3);
+  padding: 1rem;
+  background-color: transparent;
   text-transform: uppercase;
-  text-align: center;
-  border-bottom: 2px solid;
-  padding: 0 1rem;
 }
-td{
-  border: 1px solid #000;
+.openinghours p{
+  font-size: 2.4rem;
+  letter-spacing: 1px;
+}
+.openinghours h2{
+  letter-spacing: 1px;
+}
+.openinghours li{
+  margin: 1rem 0;
+  padding: 1rem;
+  background-color: #454644;
+  position: relative;
+  overflow: hidden;
+}
+/* .openinghours li::after{
+  content: "";
+  height: 30px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background-color: var(--bg-color);
+  display: block;
+  position: absolute;
+  right: -10px;
+  top: -10px;
+} */
+
+/* ----- FOODGALLERY ----- */
+.image-gallery{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+}
+.image-gallery > li{
+  /* flex-basis: 200px; */
+  height: 200px;
+  width: 200px;
+  position: relative;
+  cursor: pointer;
+  overflow: hidden;
+  border-radius: 4px;
+}
+.overlay{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, .60);
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  transform: translateY(400px);
+
+  transition: transform 350ms ease-in-out;
+}
+.image-gallery li:hover .overlay{
+  transform: translateY(0)
 }
 
 
@@ -205,21 +274,23 @@ td{
 footer h2{
   margin-bottom: 1.6rem;
   text-align: center;
+  text-transform: initial;
 }
 input[type="text"]{
   padding: .75rem 1rem;
   border: none;
   border-radius: 4px;
   margin-bottom: 2rem;
-  font-family: var(--heading-txt);
+  font-family: var(--body-txt);
+  font-size: 1.8rem;
 }
 textarea{
   border-radius: 4px;
   border: none;
   resize: none;
   padding: .75rem 1rem;
-  font-family: var(--heading-txt);
-  font-size: 1.4rem;
+  font-family: var(--body-txt);
+  font-size: 1.8rem;
 }
 .btn-footer{
   margin-top: 2rem;
@@ -247,4 +318,3 @@ textarea{
 .phonenumber{
   font-size: 2.4rem;
 }
-
