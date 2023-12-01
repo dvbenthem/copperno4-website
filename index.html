@@ -17,8 +17,11 @@
   <link href="https://fonts.googleapis.com/css2?family=Saira+Extra+Condensed:wght@100;400;800&family=Unna:wght@400;700&display=swap" rel="stylesheet">
   <!-- ICON LIBRARY (remixicons.com)-->
   <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+  <link rel="stylesheet" href="assets/icons/remixicon.css">
   <!-- PROJECT STYLES CSS -->
   <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/screensizes.css">
+  <link rel="stylesheet" href="assets/css/animations.css">
   <!-- JAVASCRIPT -->
   <script src="assets/js/app.js" defer></script>
 
@@ -29,13 +32,13 @@
       <nav class="nav">
         <ul class="nav-list">
           <li class="nav-item">
-            <a href="#">Home</a>
+            <a href="#intro">Home</a>
           </li>
           <li class="nav-item">
-            <a href="#">Openingstijden</a>
+            <a href="#openinghours">Openingstijden</a>
           </li>
           <li class="nav-item">
-            <a href="#">Contact</a>
+            <a href="#contact">Contact</a>
           </li>
         </ul>
       </nav>
@@ -47,7 +50,7 @@
     </div>
   </header>
 
-  <div class="intro">
+  <div class="intro" id="intro">
     <div class="container">
       <img class="intro-logo" src="assets/images/copperno4-logo.png" alt="logo">
       <p class="intro-content">
@@ -59,45 +62,72 @@
   </div>
 
   <main>
-    <section class="openinghours">
-      <div class="container flex">
-        <!-- OPENINGHOURS -->
-        <table aria-describedby="openinghours">
-          <thead>
-            <th colspan="2">Openingstijden:</th>
-          </thead>
-          <tbody>
-            <tr>
-              <td>Maandag: </td><td>Gesloten</td>
-            </tr>
-            <tr>
-              <td>Dinsdag: </td><td>Gesloten</td>
-            </tr>
-            <tr>
-              <td>Woensdag: </td><td>Gesloten</td>
-            </tr>
-            <tr>
-              <td>Donderdag: </td><td>17:00 - 22:00</td>
-            </tr>
-            <tr>
-              <td>Vrijdag: </td><td>17:00 - 22:00</td>
-            </tr>
-            <tr>
-              <td>Zaterdag: </td><td>17:00 - 22:00</td>
-            </tr>
-            <tr>
-              <td>Zondag: </td><td>17:00 - 22:00</td>
-            </tr>
-          </tbody>
-        </table>
+    <!-- OPENINGHOURS -->
+    <section class="openinghours" id="openinghours">
+      <div class="container">
+        <h2>Openingstijden</h2>
+        <ul>
+          <li>
+            <h4>Maandag</h4>
+            <p>Gesloten</p>
+          </li>
+          <li>
+            <h4>Dinsdag</h4>
+            <p>Gesloten</p>
+          </li>
+          <li>
+            <h4>Woensdag</h4>
+            <p>Gesloten</p>
+          </li>
+          <li class="not-closed">
+            <h4>Donderdag</h4>
+            <p>17:00 - 22:00</p>
+          </li>
+          <li class="not-closed">
+            <h4>Vrijdag</h4>
+            <p>17:00 - 22:00</p>
+          </li>
+          <li class="not-closed">
+            <h4>Zaterdag</h4>
+            <p>17:00 - 22:00</p>
+          </li>
+          <li class="not-closed">
+            <h4>Zondag</h4>
+            <p>17:00 - 22:00</p>
+          </li>
+        </ul>
       </div>
     </section>
+    <section class="food-gallery">
+      <div class="container">
+        <h2>Wat lekkers</h2>
+        <ul class="image-gallery">
+          <li>
+            <img src="assets/images/afbeelding02.jpg" alt="afbeelding02">
+            <div class="overlay"><span>Image title</span></div>
+          </li>
+          <li>
+            <img src="assets/images/afbeelding05.jpg" alt="afbeelding05">
+            <div class="overlay"><span>Image title</span></div>
+          </li>
+          <li>
+            <img src="assets/images/afbeelding07.jpg" alt="afbeelding07">
+            <div class="overlay"><span>Image title</span></div>
+          </li>
+          <li>
+            <img src="assets/images/afbeelding09.jpg" alt="afbeelding09">
+            <div class="overlay"><span>Image title</span></div>
+          </li>
+        </ul>
+      </div>
+    </section>
+
   </main>
 
   <!-- FOOTER -->
-  <footer>
+  <footer id="contact">
     <div class="container">
-      <h2>Heb je een vraag? Laat het ons weten:</h2>
+      <h2>Heb je een vraag? Laat het ons weten.</h2>
       <form class="question">
         <input type="text" required placeholder="Naam">
         <input type="text" required placeholder="E-mail">
