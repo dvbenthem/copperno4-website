@@ -152,7 +152,7 @@ nav{
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
-  min-height: 75vh;
+  min-height: 100vh;
   background-image: url("../images/afbeelding03.jpg");
   background-position: center;
   background-repeat: no-repeat;
