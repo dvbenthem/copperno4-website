@@ -182,6 +182,7 @@ nav{
 /* ----- OPENINGHOURS ----- */
 table{
   width: 200px;
+  border: 1px solid
 }
 th{
   font-size: 4rem;
@@ -189,6 +190,9 @@ th{
   text-align: center;
   border-bottom: 2px solid;
   padding: 0 1rem;
+}
+td{
+  border: 1px solid #000;
 }
 
 
