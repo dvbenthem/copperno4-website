@@ -14,14 +14,24 @@
 
 /* Tablets iPads portrait mode max-width: 1024px */
 @media (min-width: 768px) and (max-width: 1279px) {
+  /* ----- HEADER SECTION ----- */
   .mobile-nav .hamburger{
     display: none;
   }
   nav{
     display: block;
   }
-  .nav-item a{
+  .nav-list{
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 1;
+    flex-direction: column;
+    justify-content: center;
+    gap: 4rem;
+    height: 100vh;
     font-size: 2rem;
+    background-color: var(--bg-color-header);
   }
 
   /* ----- INTRO SECTION ----- */
