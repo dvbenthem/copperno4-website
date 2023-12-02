@@ -129,24 +129,29 @@ header.scrolled{
   background-color: hsla(0, 3%, 11%, .90);
 }
 
-nav{
-  display: none;
-  height: 60px;
-  position: relative;
-}
 .nav-list{
+  position: fixed;
+  inset: 0 0 0 30%;
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
-  align-items: center;
-  gap: 2rem;
-  inset: 0;
-  position: absolute;
-  
-  /* background-color: tomato; */
-  
+  background-color: hsl(0, 3%, 11%, .20);
+  backdrop-filter: blur(1rem);
+  padding: min(30vh, 10rem) 4rem 0;
+  gap: 2rem;  
+  font-size: 3rem; 
+  transform: translateX(100%);
+  transition: transform 300ms ease-in;
+}
+@supports (backdrop-filter: blur(1rem)){
+  .nav-list{
+    background-color: hsl(0, 3%, 11%, .1);
+    backdrop-filter: blur(1rem);
+  }
 }
 
+.nav-list.open{
+  transform: translateX(0);
+}
 
 /* MOBILE NAVIGATION */
 .mobile-nav{
