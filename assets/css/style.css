@@ -159,12 +159,12 @@ nav{
   top: 1.2rem;
   cursor: pointer;
 }
-.mobile-nav .hamburger{
+.mobile-nav .hamburger-btn{
   font-size: 2.4rem;
   padding: .25rem;
   display: block;
 }
-.mobile-nav .close{
+.mobile-nav .close-btn{
   display: none;
   font-size: 2.4rem;
 }
