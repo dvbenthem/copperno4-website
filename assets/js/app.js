@@ -1,3 +1,10 @@
-const headerEl = document.querySelector("header");
+const headerEl = document.querySelector(".header");
 
-console.log(headerEl);
+// headerEl.addEventListener("click", function(){
+//   console.log("You clicked me!")
+// })
+
+window.addEventListener("scroll", () => {
+  const scrollPos = window.scrollY;
+  scrollPos > 100 ? headerEl.classList.add("scrolled") : headerEl.classList.remove("scrolled")
+})
