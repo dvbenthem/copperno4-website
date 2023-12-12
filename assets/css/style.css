@@ -31,6 +31,7 @@
   /* --text-color: hsl(0, 2%, 80%); */
   --text-color: hsl(0, 0%, 93%);
   --bg-color-header: hsl(0, 3%, 11%);
+  --bg-color-header: #070504; /* als text even */
   --primary-color: #864d37;
   --accent-color: hsl(18, 42%, 5%);
   --secondary-color: #F9D2C3;
@@ -127,6 +128,7 @@ header{
 header.scrolled{
   height: 60px;
   background-color: hsla(0, 3%, 11%, .90);
+  background-color: hsla(20, 27%, 2%, 0.9); /* als text even */
 }
 
 .nav-list{
