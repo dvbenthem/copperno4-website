@@ -255,13 +255,13 @@ header.scrolled{
   gap: 1rem;
 }
 .image-gallery > li{
-  /* flex-basis: 200px; */
   height: 200px;
   width: 200px;
   position: relative;
-  cursor: pointer;
+  /* cursor: pointer; */
   overflow: hidden;
   border-radius: 4px;
+  flex: 1 0 300px;
 }
 .overlay{
   position: absolute;
