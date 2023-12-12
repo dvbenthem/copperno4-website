@@ -1,4 +1,4 @@
-@font-face {
+/* @font-face {
   font-family: "Unna";
   src: url(/assets/fonts/unna/Unna-Regular.ttf);
   font-weight: 400;
@@ -22,7 +22,7 @@
   font-family: "Saira";
   src: url(/assets/fonts/saira/SairaExtraCondensed-Bold.ttf);
   font-weight: 700;
-}
+} */
 
 /* CUSTOM PROPERTIES */
 :root{
