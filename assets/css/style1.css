@@ -1,23 +1,3 @@
-@font-face {
-  font-family: "Satisfy";
-  src: url(../fonts/Satisfy-Regular.ttf);
-  font-weight: 400;
-  font-style: normal;
-}
-@font-face {
-  font-family: "DMSans";
-  src: url(../fonts/DMSans-Regular.ttf);
-}
-@font-face {
-  font-family: "DMSans-thin";
-  src: url(../fonts/DMSans-Thin.ttf);
-}
-@font-face {
-  font-family: "DMSans-Bold";
-  src: url(../fonts/DMSans-Bold.ttf);
-  font-weight: 700;
-}
-
 /* ---------- CUSTOM PROPERTIES ---------- */
 :root{
   /* colors */
@@ -30,12 +10,12 @@
   --secondary-color: #F9D2C3;
   --accent-color2: #636A5B;
   --accent-color3: #454644;
+  --bg-color: #050606;
 
   /* font-family */
-  --logo-ff: "Satisfy", cursive;
-  --heading-ff: "Saira Extra Condensed", sans-serif;
-  --nav-ff: "DMSans", sans-serif;
-  --body-ff: "DMSans", sans-serif;
+  --logo-ff: "Satisfy";
+  --nav-ff: "DM Sans";
+  --body-ff: "DM Sans";
   /* --heading-txt:  */
 }
 
@@ -52,7 +32,7 @@ html{
   /* 62.5% of 16px browser font size is 10px */
   /* 12px in rems: 12 / 16 = 0.75rem */
   /* 16px in rems: 16 / 16 = 1rem */
-  line-height: 1.5;
+  line-height: 1.6;
   scroll-behavior: smooth;
   color: var(--text-color);
 }
@@ -69,20 +49,20 @@ h2{
   font-weight: initial;
   margin-bottom: 4.8rem;
 }
-img{
-  max-width: 100%;
-  display: block;
+p{
+  font-size: 1.8rem;
+  margin-block: 1.6rem;
 }
 a{
   color: initial;
   text-decoration: none;
 }
-p{
-  font-size: 1.8rem;
-  margin-block: 1.6rem;
-}
 ul{
   list-style: none;
+}
+img {
+  max-width: 100%;
+  display: block;
 }
 i{
   font-size: 2.5rem;
@@ -93,10 +73,13 @@ section{
 
 /* REUSABLE CLASSES */
 .container{
+  /* padding-inline: 1.5rem;
+  max-width: 1180px;
+  margin: 0 auto; */
   max-width: 1440px;
   margin: 0 auto;
   padding: 0 2rem;
-}
+} 
 .btn{
   border-radius: 100px;
   border: none;
@@ -109,7 +92,11 @@ section{
   padding: 8px 32px;
   font-family: var(--body-txt);
 }
+/* .hero__btn--brons{
+  background-color: hsl(var(--secondary-color));
+} */
 
+/* ------------------------------------------------------*/
 
 
 /* ---------- HEADER ---------- */
@@ -128,10 +115,9 @@ section{
 }
 .header.scrolled{
   height: 8rem;
-  background-color: hsla(0, 3%, 11%, .9);
-  background-color: hsla(20, 27%, 2%, 0.9); /* als text even */
+  /* background-color: hsla(0, 3%, 11%, .9); */
+  background-color: hsla(20, 27%, 2%, 0.9);
   background-color: var(--bg-color);
-  backdrop-filter: blur(20px);
 }
 .header .container{
   display: flex;
@@ -143,23 +129,107 @@ section{
   padding: 0 2rem;
 }
 
-/* NAVIGATION */
-.nav-list{
+/* ---------- NAVIGATION ---------- */
+nav{
+  position: relative;
+  height: 4rem;
   display: flex;
-  gap: 2.5rem;
+  justify-content: space-between;
+  align-items: center;
 }
-.nav-list li a{
+.nav__logo{
+  font-family: monospace, sans-serif;
+  letter-spacing: -2px;
+  font-size: 1.4rem;
+}
+.nav__close,
+.toggle__menu{
+  cursor: pointer;
+  /* font-size: 1.4rem; */
+  /* color: hsl(29, 57%, 46%); */
+}
+
+/* NAVIGATION FOR MOBILE SCREENS AND IPAD */
+@media screen and (max-width: 786px){
+  .container{
+    padding-inline: 4rem;
+  } 
+  .nav__menu{
+    background-color: hsla(var(--primary-color), .25);
+    backdrop-filter: blur(1rem);
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 60%;
+    height: 100%;
+    box-shadow: -2px 0 12px hsla(0, 0%, 0%, .2);
+    padding: 16rem 3rem 0;
+    transition: right 400ms ease-out;
+  }
+  /* ---------- OPEN MENU JS ---------- */
+  .open{
+    right: 0;
+  }
+  .toggle__menu,
+  .nav__close{
+    color: hsl(var(--text-color));
+    font-size: 2.4rem;
+  }
+  /* _____ hero section _____ */
+  section.hero{
+    height: 100%;
+  }
+
+  .menu__toggle{
+    display: flex;
+  }
+
+  .hero__content{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+  }
+  .hero__img{
+    width: 250px;
+  }
+  .hero__content h1{
+    margin-block-start: 8rem;
+    font-size: 2rem;
+  }
+  .hero__content p{
+    font-size: 1.6rem;
+    margin-block-end: 2rem;
+  }
+}
+.nav__list{
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+.nav__close{
+  position: absolute;
+  top: 1.7rem;
+  right: 1.8rem;
+  font-size: 3rem;
+}
+.nav__item a{
   color: var(--text-color);
   font-family: var(--nav-ff);
   font-size: 1.8rem
 }
-.nav-list li:last-child{
-  padding-left: 20px;
-  border-left: 1px solid #fff;
+
+@media screen and (min-width: 787px){
+  .nav__close,
+  .toggle__menu{
+    display: none;
+  }
+  .nav__list{
+    flex-direction: row;
+  }
 }
-.mobile-nav{
-  display: none;
-}
+
 
 /* ---------- HERO SECTION ---------- */
 .hero{
@@ -169,13 +239,13 @@ section{
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  background: url(../images/copperno4-foto1.jpg);
+  background: url(../images/copperno4_bg.jpg);
   box-shadow: inset 0 0 0 2000px rgba(0, 0, 0, .65); 
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
-}
+  }
 .hero .container{
   display: flex;
   flex-direction: column;
@@ -185,7 +255,6 @@ section{
   width: 250px;
   margin-bottom: 3.2rem;
   font-weight: normal;
-  /* box-shadow: 0 0 20px 10px rgba(0, 0, 0, .5); */
 }
 .hero h1{
   font-size: 2rem;
@@ -205,9 +274,7 @@ h1 .logo-hero{
   font-size: 1.8rem;
 }
 
-/* ---------- ------ ----- ----- ---------- */
-/* ---------- SOCIAL MEDIA ICONS ---------- */
-/* ---------- ------ ----- ----- ---------- */
+/* ---------- | SOCIAL MEDIA ICONS | ---------- */
 .social-media{
   display: flex;
   gap: 2rem;
@@ -230,12 +297,7 @@ h1 .logo-hero{
   box-shadow: 0 0 5px 1px #ffffff5e;
 }
 
-/* ---------- ---------------- ---------- */
 /* ---------- | MENU SECTION | ---------- */
-/* ---------- ---------------- ---------- */
-/* .tabs{
-  border: 1px solid var(--text-color);
-} */
 .tabs__topbar{
   display: flex;
   gap: 1.6rem;
@@ -245,10 +307,6 @@ h1 .logo-hero{
   border: 3px solid var(--primary-color);
   transition: all 300ms;
 }
-/* .btn--primary:hover{
-  background-color: transparent;
-  border: 3px solid var(--primary-color);
-} */
 .tabs__button--active{
   background-color: var(--primary-color);
 }
@@ -258,7 +316,6 @@ h1 .logo-hero{
   padding: 3.2rem;
   font-size: 1.8rem;
   background-color: #070504;
-  /* border: 2px solid var(--text-color); */
   display: none;
 }
 .tabs__content--active{
@@ -268,26 +325,14 @@ h1 .logo-hero{
   font-size: 2.4rem;
   margin-bottom: 3.2rem;
   text-align: center;
-  /* display: flex;
-  justify-content: center;
-  align-items: center; */
 } 
 .tabs__content ul{
-  /* display: flex; */
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
 }
-/* .tabs__content ul li{
-  padding: 200px;
-} */
 
-
-
-
-/* ---------- ----------------- ---------- */
-/* ---------- FEESTZAAL SECTION ---------- */
-/* ---------- ----------------- ---------- */
+/* ---------- | FEESTZAAL SECTION | ---------- */
 .feestzaal-wrapper{
   display: flex;
   column-gap: 4rem;
@@ -304,16 +349,68 @@ h1 .logo-hero{
     border-radius: 15px;
 }
 
-/* ---------- -------------- ---------- */
-/* ---------- FOOTER SECTION ---------- */
-/* ---------- -------------- ---------- */
+
+/* ----- OPENINGHOURS ----- */
+.openinghours{
+  /* background: url(../images/openingstijden_bg.jpg); */
+  background-position: center;
+  background-repeat: no-repeat;
+  box-shadow: inset 0 0 0 2000px rgba(0, 0, 0, .4);
+}
+.openinghours__heading{
+  /* text-transform: uppercase; */
+  font-size: 3.2rem;
+}
+.openinghours-list {
+  display: flex;
+  flex-wrap: wrap;
+  min-width: 250px;
+}
+.openinghours li:not(.not-closed) {
+  border: 2px solid hsl(var(--secondary-color));
+  padding: 1rem;
+  background-color: transparent;
+  text-transform: uppercase;
+}
+.openinghours p {
+  font-size: 2.4rem;
+  letter-spacing: 1px;
+}
+.openinghours h2 {
+  letter-spacing: 1px;
+  margin-left: 1rem;
+  text-align: center;
+}
+.openinghours li {
+  margin: .5rem .5em;
+  padding: 1rem;
+  background-color: hsl(var(--secondary-color));
+  position: relative;
+  overflow: hidden;
+  flex: 1;
+  flex-basis: 200px;
+}
+/* .openinghours li::after{
+  content: "";
+  height: 30px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background-color: var(--bg-color);
+  display: block;
+  position: absolute;
+  right: -10px;
+  top: -10px;
+} */
+
+
+/* ---------- | FOOTER SECTION | ---------- */
 footer{
   background-color: rgb(36, 34, 34);
   padding: 10rem 0 6rem 0;
 }
 .footer-column-heading{
   font-size: 2rem;
-  font-family: "DMsans-thin";
+  font-family: "DMsans-thin", sans-serif;
   font-weight: bold;
   margin-bottom: 2.4rem;
 }
@@ -331,7 +428,7 @@ footer{
 .phone-number, .email{
   font-size: 3.2rem;
   font-weight: 700;
-  font-family: "DMSans-Bold";
+  font-family: "DMSans-Bold", sans-serif;
   letter-spacing: -2px;
 }
 .row .email{
@@ -340,7 +437,7 @@ footer{
 }
 .visiting-location div{
   font-size: 3.2rem;
-  font-family: "DMSans-Bold";
+  font-family: "DMSans-Bold", sans-serif;
 }
 .footer-bottom{
   display: flex;
@@ -360,7 +457,7 @@ footer{
   color: var(--text-color);
 }
 
-/* FOOTER SOCIAL MEDIA */
+/* --------- | FOOTER SOCIAL MEDIA | ---------- */
 .footer-social-media{
   display: flex;
   align-items: center;
@@ -375,9 +472,14 @@ footer{
 }
 
 
+/* MOBILE (FIRST) -> [SCREEN SIZE: 375px] */
+@media (min-width: 375px){}
 
+/* LARGE MOBILES -> [SCREEN SIZE: 425px] */
+@media (min-width: 425px){}
 
-@media (max-width: 768px) {
+/* SMALL TABLET STYLES -> [SCREENSIZE: 768px] */
+@media (max-width: 768px){
   .tabs__topbar{
     flex-wrap: wrap;
   }
@@ -397,12 +499,11 @@ footer{
     display: block;
     position: absolute;
     right: 80px;
-    top: 24px;
-  }
-  .phone-number-mobile a{
+    top: 17px;
     color: var(--text-color);
-    /* display: block; */
     font-size: 1.8rem;
+    border-right: 2px solid var(--text-color);
+    padding-right: 1.6rem;
   }
   .mobile-nav .close-btn{
     display: none;
@@ -427,3 +528,9 @@ footer{
     gap: 1.4rem;
   }
 }
+
+/* LARGE TABLETS & LAPTOP STYLES -> [SCREENSIZE: 1024px] */
+@media (min-width: 1024px){}
+
+/* LARGE LAPTOP & DESKTOP STYLES -> [SCREENSIZE: 1440px] */
+@media (min-width: 1440px){}
