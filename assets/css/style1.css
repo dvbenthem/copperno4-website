@@ -21,7 +21,7 @@
 /* ---------- CUSTOM PROPERTIES ---------- */
 :root{
   /* colors */
-  --bg-color: hsl(240, 6%, 7%);
+  --bg-color: rgb(17, 17, 19);
   --text-color: hsl(0, 0%, 93%);
   --bg-color-header: hsl(0, 3%, 11%);
   --bg-color-header: #070504; /* als text even */
@@ -185,7 +185,7 @@ section{
   width: 250px;
   margin-bottom: 3.2rem;
   font-weight: normal;
-  box-shadow: 0 0 20px 10px rgba(0, 0, 0, .5);
+  /* box-shadow: 0 0 20px 10px rgba(0, 0, 0, .5); */
 }
 .hero h1{
   font-size: 2rem;
@@ -378,11 +378,8 @@ footer{
 
 
 @media (max-width: 768px) {
-
-
   .tabs__topbar{
-   flex-wrap: wrap;
-   
+    flex-wrap: wrap;
   }
   /* NAVIGATION */
   .logo{
