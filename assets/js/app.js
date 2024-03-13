@@ -1,37 +1,18 @@
-const headerEl = document.querySelector(".header");
-const hamburgerBtn = document.querySelector(".hamburger-btn");
-const closeBtn = document.querySelector(".close-btn");
-const menu = document.querySelector(".nav-list");
-const menuItems = document.querySelectorAll(".nav-list li");
+const menu = document.querySelector(".nav__menu");
+const openMenu = document.querySelector(".toggle__menu");
+const closeMenu = document.querySelector(".nav__close");
+const menuItems = document.querySelectorAll(".nav__item a");
+const headerEl = document.querySelector("header");
 
-
-// Wanneer je naar beneden scrolt laat de menubalk(header) zien
-window.addEventListener("scroll", () => {
-  const scrollPos = window.scrollY;
-  scrollPos > 200 ? headerEl.classList.add("scrolled") : headerEl.classList.remove("scrolled")
-});
-
-// Open het menu als je op hamburgerBtn klikt
-hamburgerBtn.addEventListener("click", () => {
-  menu.classList.toggle("open");
-  console.log("jfkdjakfl")
+openMenu.addEventListener("click", () => {
+  menu.classList.add("open")
 })
-
-// Verberg het menu zodra je buiten het menu klikt
-document.addEventListener("click", (e) => {
-  if (!menu.contains(e.target) && e.target !== hamburgerBtn){
-      menu.classList.remove("open")
-    }
-  });
-
-  // Haal alle menuItems op en wanneer je erop klikt verberg het menu
-  menuItems.forEach((menuItem) => {
-    menuItem.addEventListener("click", () =>{
-      if (menuItem.classList.contains("nav-item")){
-        menu.classList.remove("open")
-    }
-  })
-});
+closeMenu.addEventListener("click", () => {
+  menu.classList.remove("open")
+})
+menuItems.forEach(menuItem => menuItem.addEventListener("click", () => {
+  menu.classList.remove("open") 
+}));
 
 function setupTabs(){
   document.querySelectorAll(".tabs__button").forEach(button => {
