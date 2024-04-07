@@ -14,13 +14,11 @@ menuItems.forEach(menuItem => menuItem.addEventListener("click", () => {
   menu.classList.remove("open") 
 }));
 
-
 // Wanneer je naar beneden scrolt laat de menubalk zien
 window.addEventListener("scroll", () => {
   const scrollPos = window.scrollY;
   scrollPos > 100 ? headerEl.classList.add("scrolled") : headerEl.classList.remove("scrolled")
 });
-
 
 function setupTabs(){
   document.querySelectorAll(".tabs__button").forEach(button => {
