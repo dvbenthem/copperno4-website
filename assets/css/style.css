@@ -1,23 +1,48 @@
+@font-face {
+  font-family: "Satisfy";
+  src: url(../fonts/Satisfy/Satisfy-Regular.ttf);
+}
+@font-face {
+  font-family: "DM Sans";
+  src: url(../fonts/DMSans/DMSans-VariableFont_opsz\,wght.ttf);
+}
+@font-face {
+  font-family: "Spectral";
+  src: url(../fonts/Spectral/Spectral-Regular.ttf);
+}
 /* ---------- CUSTOM PROPERTIES ---------- */
 :root{
   /* colors */
-  --bg-color: rgb(17, 17, 19);
+  --bg-color: rgb(24, 24, 26);
   --text-color: hsl(0, 0%, 93%);
   --bg-color-header: hsl(0, 3%, 11%);
-  --bg-color-header: #070504; /* als text even */
+  --bg-color-header: #494848; /* als text even */
   --primary-color: #864d37;
   --accent-color: hsl(18, 42%, 5%);
   --secondary-color: #F9D2C3;
   --accent-color2: #636A5B;
   --accent-color3: #454644;
-  --bg-color: #050606;
+  --bg-color: hsl(0, 0%, 8%);
 
   /* font-family */
-  --logo-ff: "Satisfy";
-  --nav-ff: "DM Sans";
-  --body-ff: "DM Sans";
+  --logo-ff: "Satisfy", serif;
+  /* --nav-ff: "DM Sans, sans-serif"; */
+  --body-ff: "DM Sans", sans-serif;
   /* --heading-txt:  */
 }
+
+/* -------- SECTION SCROLLBAR ---------- */
+::-webkit-scrollbar{
+  width: 15px;
+}
+::-webkit-scrollbar-track{
+  background-color: #1f1f1f;
+}
+::-webkit-scrollbar-thumb{
+  background-color: #864d37;
+  border-radius: 100px;
+}
+
 
 /* ---------- RESET / BASIC STYLES ---------- */
 *{
@@ -39,22 +64,28 @@ html{
 body{
   background-color: var(--bg-color);
   font-family: var(--body-ff);
-  user-select: none;
+  /* user-select: none; */
 }
 h2{
-  font-family: var(--logo-ff);
+  font-family: "Spectral";
   color: var(--text-color);
-  font-size: 5.6rem;
+  font-size: 3.8rem;
   text-transform: capitalize;
   font-weight: initial;
-  margin-bottom: 4.8rem;
+  margin-bottom: 4rem;
+  letter-spacing: -2px;
+  border-bottom: 1px solid var(--primary-color);
+  width: fit-content;
+}
+h4{
+  font-weight: initial;
 }
 p{
   font-size: 1.8rem;
   margin-block: 1.6rem;
 }
 a{
-  color: initial;
+  color: hsl(var(--text-color));
   text-decoration: none;
 }
 ul{
@@ -82,15 +113,15 @@ section{
 } 
 .btn{
   border-radius: 100px;
-  border: none;
+  /* border: none; */
   border: 3px solid transparent;
   color: var(--text-color);
-  /* background-color: transparent; */
   cursor: pointer;
   font-size: 1.8rem;
   text-align: center;
   padding: 8px 32px;
   font-family: var(--body-txt);
+  text-transform: uppercase;
 }
 /* .hero__btn--brons{
   background-color: hsl(var(--secondary-color));
@@ -115,7 +146,6 @@ section{
 }
 .header.scrolled{
   height: 8rem;
-  /* background-color: hsla(0, 3%, 11%, .9); */
   background-color: hsla(20, 27%, 2%, 0.9);
   background-color: var(--bg-color);
 }
@@ -142,11 +172,13 @@ nav{
   letter-spacing: -2px;
   font-size: 1.4rem;
 }
+.nav__item:last-child{
+  border-left: 2px solid var(--text-color);
+  padding-left: 1.6rem;
+}
 .nav__close,
 .toggle__menu{
   cursor: pointer;
-  /* font-size: 1.4rem; */
-  /* color: hsl(29, 57%, 46%); */
 }
 
 /* NAVIGATION FOR MOBILE SCREENS AND IPAD */
@@ -175,15 +207,13 @@ nav{
     color: hsl(var(--text-color));
     font-size: 2.4rem;
   }
-  /* _____ hero section _____ */
+  /* ---------- SECTION HERO ---------- */
   section.hero{
     height: 100%;
   }
-
   .menu__toggle{
     display: flex;
   }
-
   .hero__content{
     display: flex;
     flex-direction: column;
@@ -246,6 +276,9 @@ nav{
   background-size: cover;
   background-attachment: fixed;
   }
+.hero-content{
+  font-family: "Spectral"
+}
 .hero .container{
   display: flex;
   flex-direction: column;
@@ -271,7 +304,16 @@ h1 .logo-hero{
   margin-top: 3rem;
 }
 .hero-text{
-  font-size: 1.8rem;
+  font-size: 2.4rem;
+  display: block;
+  padding-block: 4rem;
+  text-align: center;
+}
+.hero-btn{
+  margin-top: 6.4rem;
+  display: block;
+  color: var(--primary-color);
+  margin: 0 auto;
 }
 
 /* ---------- | SOCIAL MEDIA ICONS | ---------- */
@@ -294,10 +336,105 @@ h1 .logo-hero{
   height: 100px;
   border-radius: 10%;
   padding: 1rem;
-  box-shadow: 0 0 5px 1px #ffffff5e;
+  box-shadow: 0 0 5px 1px #ffffff91;
+  color: #fff;
+}
+/* ---------- | SECTION RESTAURANT | ---------- */
+.restaurant-wrapper{
+  display: grid;
+  grid-template-columns: 400px 1fr;
+  grid-template-rows: 375px 375px;
+  background-color: hsl(0, 2%, 14%);
+  /* padding: 3.2rem; */
+}
+.welcome-text{
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 300px;
+  margin: 0 auto;
+}
+.restaurant-img{
+  grid-column: 1 / 2;
+  grid-row: 2 / 3;
+  object-fit: cover;
+  height: 100%;
+  width: 100%;
+}
+.kornuiten{
+  grid-column: 2 / 3;
+  grid-row: 1 / 2;
+  object-fit: cover;
+  height: 100%;
+  width: 100%;
+}
+.restaurant-text{
+  text-align: center;
+  grid-column: 2 / 3;
+  grid-row: 2 / 3;
+  display: flex;
+  flex-direction: column;
+  margin: 2.8rem auto;
+  width: 850px;
+}
+/* .restaurant-image{
+  width: 100px;
+  object-fit: contain;
+  object-position: 100px 100px;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+} */
+/* .restaurant-text{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+} */
+.restaurant-img-container{
+  grid-column: 2 / 3;
+  grid-row: 1 / 2;
+}
+/* .restaurant-img-container{
+  flex: 1;
+  justify-content: center;
+  display: grid;
+  grid-template-columns: 250px 250px;
+  grid-template-rows: 250px 250px;
+  gap: 1.6rem;
+  place-items: center;
+} */
+/* ---------- | SECTION MENU | ---------- */
+.menu th{
+  text-align: left;
+  height: 75px;
+  text-decoration: underline;
+  font-size: 2.4rem;
+  font-family: "Spectral";
+}
+.menu td.cap{
+  text-transform: capitalize;
+  font-size: 2.4rem;
+}
+.menu tr + .menu tr:nth-child(3n+3){
+  font-size: 1.4rem;
+}
+.menu tr:nth-child(3n+2){
+  font-family: "Spectral";
 }
 
-/* ---------- | MENU SECTION | ---------- */
+/* for row spacing */
+.menu td > div{
+  margin-bottom: 2.4rem;
+}
+/* end row spacing */
+
+.menu span.emphasise{
+  font-style: italic;
+  font-size: 1.6rem;
+}
+
+
 .tabs__topbar{
   display: flex;
   gap: 1.6rem;
@@ -311,6 +448,7 @@ h1 .logo-hero{
   background-color: var(--primary-color);
 }
 .tabs__content{
+  width: 650px;
   margin-top: 3.2rem;
   border-radius: 20px;
   padding: 3.2rem;
@@ -320,6 +458,12 @@ h1 .logo-hero{
 }
 .tabs__content--active{
   display: block;
+}
+.tabs__content__list{
+  display: grid;
+}
+.tabs__content__list img{
+  width: 200px;
 }
 .tabs__content h3{
   font-size: 2.4rem;
@@ -332,7 +476,8 @@ h1 .logo-hero{
   align-items: center;
 }
 
-/* ---------- | FEESTZAAL SECTION | ---------- */
+
+/* ---------- | SECTION FEESTZAAL | ---------- */
 .feestzaal-wrapper{
   display: flex;
   column-gap: 4rem;
@@ -343,50 +488,87 @@ h1 .logo-hero{
   gap: 1.6rem;
 }
 .grid-item > img{
-    object-fit: cover;
-    width: 100%;
-    height: 100%;
-    border-radius: 15px;
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  border-radius: 4px;
 }
 
+
+/* ---------- | SECTION DEN OUDE HERBERG | ---------- */
+.website-dob-link, .mergellandroute-link{
+  color: hsl(var(--text-color));
+}
+.website-dob-link:hover{
+  border-bottom: 1px dashed 
+}
+.mergellandroute-link{
+  border: 2px solid hsl(var(--text-color));
+}
+.denoudeherberg-image-container{
+  display: flex;
+  gap: 1.6rem;
+}
+.denoudeherberg-image-container img{
+  transition: all 250ms;
+  object-fit: cover;
+  height: 100%;
+  width: 100%;
+  border-radius: 4px;
+}
+.image{
+  position: relative;
+}
+.image-overlay{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 350ms;
+}
+.image-overlay > *{
+  transform: translateY(20px);
+  transition: transform 350ms;
+}
+.image-overlay:hover{
+  opacity: 1;
+}
+.image-overlay:hover > *{
+  transform: translateY(0px);
+}
+.book, .website-dob{
+  color: hsl(var(--text-color));
+  border: 3px solid var(--text-color);
+  border-radius: 100px;
+  padding: 1rem 1.6rem;
+  font-size: 1.6rem;
+  text-transform: uppercase;
+  font-family: "DM Sans";
+  display: block;
+}
+
+
+
+/* ----- FOOTER ----- */
+
+/* ----- CONTACT ----- */
 
 /* ----- OPENINGHOURS ----- */
 .openinghours{
-  /* background: url(../images/openingstijden_bg.jpg); */
-  /* background-position: center;
-  background-repeat: no-repeat;
-  box-shadow: inset 0 0 0 2000px rgba(0, 0, 0, .4); */
-}
-.openinghours__heading{
-  /* text-transform: uppercase; */
-  font-size: 3.2rem;
-}
-.openinghours-list {
-  /* display: flex;
-  flex-wrap: wrap;
-  min-width: 250px; */
-}
-
-.openinghours li:not(.not-closed) {
-  border: 2px solid hsl(var(--secondary-color));
-  padding: 1rem;
-  background-color: transparent;
-  text-transform: uppercase;
-}
-.openinghours-list li{
-
-}
-.openingtimes{
+  width: 350px;
+  /* background-color: #864d37; */
   font-size: 2.4rem;
 }
+
 .openinghours p {
   font-size: 2.4rem;
   letter-spacing: 1px;
-}
-.openinghours h2 {
-  /* letter-spacing: 1px; */
-  /* margin-left: 1rem; */
-  /* text-align: center; */
 }
 .openinghours li {
   margin: .5rem .5em;
@@ -397,24 +579,33 @@ h1 .logo-hero{
   flex: 1;
   flex-basis: 200px;
 }
-/* .openinghours li::after{
-  content: "";
-  height: 30px;
-  aspect-ratio: 1;
-  border-radius: 50%;
-  background-color: var(--bg-color);
-  display: block;
-  position: absolute;
-  right: -10px;
-  top: -10px;
-} */
 
 
 /* ---------- | FOOTER SECTION | ---------- */
 footer{
-  background-color: rgb(36, 34, 34);
-  padding: 10rem 0 6rem 0;
+  background-color: hsl(0, 0%, 0%);
+  background-position: center;
+  padding: 10rem 0 0 0;
+  position: relative;
+  /* background-image: url(/assets/images/eucalyptus.png);
+  background-position: left;
+  background-repeat: no-repeat;
+  background-size: contain; */
 }
+/* footer::before{
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-image: url("../images/footer_bg.jpg");
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 55% 55%;
+  opacity: .1;
+} */
 .footer-column-heading{
   font-size: 2rem;
   font-family: "DMsans-thin", sans-serif;
@@ -425,6 +616,7 @@ footer{
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+  flex-direction: row-reverse;
 }
 .footer-column{
   padding-right: 6rem;
@@ -433,31 +625,33 @@ footer{
   color: var(--text-color);
 }
 .phone-number, .email{
-  font-size: 3.2rem;
-  font-weight: 700;
-  font-family: "DMSans-Bold", sans-serif;
-  letter-spacing: -2px;
+  font-size: 2.4rem;
+  font-family: var(--body-ff), sans-serif;
+  letter-spacing: -1px;
 }
 .row .email{
   color: var(--primary-color);
-  font-weight: bold;
 }
-.visiting-location div{
-  font-size: 3.2rem;
-  font-family: "DMSans-Bold", sans-serif;
+.visiting-location > *{
+  font-size: 2.4rem;
+  font-family: var(--body-ff), sans-serif;
 }
 .footer-bottom{
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   flex-wrap: wrap;
-  align-items: center;
+  /* align-items: center; */
   width: 100%;
-  margin-top: 6rem;
+  border-top: 1px solid #141414;
+  border-bottom: 1px solid #141414;
+  padding: 3.2rem;
+  margin-block: 6rem;
 }
 .footer-menu{
   display: flex;
   flex-wrap: wrap;
-  font-size: 1.8em;
+  justify-content: center;
+  font-size: 2em;
   gap: 6.4rem;
 }
 .footer-menu a{
@@ -476,6 +670,12 @@ footer{
 
 .phone-number-mobile{
   display: none;
+}
+.copyright{
+  font-size: small;
+  text-align: center;
+  color: rgb(68, 68, 68);
+  /* margin-top: 3.2rem; */
 }
 
 
@@ -519,6 +719,13 @@ footer{
   .social-media{
     display: none;
   }
+  /* SECTION MENU */
+  .maindish-group{
+    grid-template-columns: 1fr;
+  }
+
+
+
   .footer-column{
     margin-bottom: 5rem;
   }
@@ -540,4 +747,19 @@ footer{
 @media (min-width: 1024px){}
 
 /* LARGE LAPTOP & DESKTOP STYLES -> [SCREENSIZE: 1440px] */
-@media (min-width: 1440px){}
+@media (min-width: 1440px){
+
+
+
+
+}
+
+/* 
+@media screen and (min-width:992px) {
+  .maindish-group{
+    grid-template-columns: repeat(2, 1fr);
+  }
+} */
+.maindish-group{
+  grid-template-columns: 1fr;
+}
