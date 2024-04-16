@@ -1,0 +1,1256 @@
+@font-face {
+  font-family: "Satisfy";
+  src: url(../fonts/Satisfy/Satisfy-Regular.ttf);
+}
+@font-face {
+  font-family: "DM Sans";
+  src: url(../fonts/DMSans/DMSans-VariableFont_opsz\wght.ttf);
+}
+@font-face {
+  font-family: "Spectral";
+  src: url(../fonts/Spectral/Spectral-Regular.ttf);
+}
+/* ---------- CUSTOM PROPERTIES ---------- */
+:root {
+  /* colors */
+  --bg-color: rgb(24, 24, 26);
+  --text-color: hsl(0, 0%, 93%);
+  --bg-color-header: hsl(0, 3%, 11%);
+  --bg-color-header: #494848; /* als text even */
+  --primary-color: #864d37;
+  --accent-color: hsl(18, 42%, 5%);
+  --secondary-color: #f9d2c3;
+  --accent-color2: #636a5b;
+  --accent-color3: #454644;
+  --bg-color: hsl(0, 0%, 8%);
+
+  /* font-family */
+  --logo-ff: "Satisfy", serif;
+  /* --nav-ff: "DM Sans, sans-serif"; */
+  --body-ff: "DM Sans", sans-serif;
+  /* --heading-txt:  */
+}
+
+/* -------- SECTION SCROLLBAR ---------- */
+/* ::-webkit-scrollbar {
+  width: 15px;
+}
+::-webkit-scrollbar-track {
+  background-color: #1f1f1f;
+}
+::-webkit-scrollbar-thumb {
+  background-color: #864d37;
+  border-radius: 100px;
+} */
+
+/* ---------- | RESET / BASIC STYLES | ---------- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html {
+  font-family: var(--body-txt);
+  font-weight: 400;
+  font-size: 62.5%;
+  /* 62.5% of 16px browser font size is 10px */
+  /* 12px in rems: 12 / 16 = 0.75rem */
+  /* 16px in rems: 16 / 16 = 1rem */
+  line-height: 1.8;
+  scroll-behavior: smooth;
+  color: var(--text-color);
+}
+body {
+  background-color: var(--bg-color);
+  font-family: var(--body-ff);
+  -webkit-user-select: none;
+  user-select: none;
+}
+h2 {
+  font-family: "Spectral";
+  color: var(--text-color);
+  text-transform: capitalize;
+  font-weight: initial;
+  font-size: 4rem;
+  text-align: center;
+}
+h4 {
+  font-weight: initial;
+}
+p {
+  font-size: 1.8rem;
+  /* margin-block: 1.6rem; */
+}
+a {
+  color: hsl(var(--text-color));
+  text-decoration: none;
+}
+ul {
+  list-style: none;
+}
+img {
+  max-width: 100%;
+  display: block;
+}
+i {
+  font-size: 2.5rem;
+}
+section {
+  padding: 5rem 0;
+  scroll-margin-top: 4rem;
+}
+
+/* REUSABLE CLASSES */
+.container {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 1.6rem;
+}
+.btn {
+  border-radius: 100px;
+  border: 3px solid transparent;
+  color: var(--text-color);
+  cursor: pointer;
+  font-size: 1.6rem;
+  text-align: center;
+  padding: 8px 32px;
+  font-family: var(--body-txt);
+  text-transform: uppercase;
+}
+/* ------------------------------------------------------*/
+
+/* ---------- HEADER ---------- */
+.logo {
+  font-family: "Satisfy", cursive;
+  color: var(--text-color);
+  font-size: 3.2rem;
+}
+header {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 999;
+  height: 0;
+  background-color: hsla(0, 0%, 10%, 1);
+  transition: all 250ms ease-out;
+}
+header.scrolled {
+  height: 8rem;
+  background-color: hsla(0, 0%, 10%, 1);
+} 
+header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1440px;
+  margin: 9px auto;
+  height: 6rem;
+  padding: 0 2rem;
+}
+
+/* ---------- | NAVIGATION | ---------- */
+.nav .container{
+  align-items: center;
+}
+.nav__logo {
+  font-family: monospace, sans-serif;
+  letter-spacing: -2px;
+  font-size: 1.4rem;
+}
+/* .nav__menu {
+  background-color: hsla(0, 0%, 10%, 0.90);
+  backdrop-filter: blur(1rem);
+  -webkit-backdrop-filter: blur(1rem);
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 60%;
+  height: 100%;
+  box-shadow: -2px 0 12px hsla(0, 0%, 0%, .35);
+  padding: 16rem 3rem 0;
+  transition: right 400ms ease-out;
+} */
+
+.nav__list{
+  backdrop-filter: blur(1rem);
+  position: fixed;
+  top: 0;
+  right:0;
+  padding: 16rem 4rem 0;
+  background-color: hsla(0, 0%, 10%, .95);
+  height: 100vh;
+  width: 250px;
+  z-index: -1;
+  display: flex;
+  flex-direction: column;
+  gap: 2.4rem;
+  transform: translateX(100%);
+  transition: transform 350ms;
+}
+
+.nav__item a {
+  color: var(--text-color);
+  font-family: var(--nav-ff);
+  font-size: 1.8rem;
+  text-transform: capitalize;
+}
+.nav__close{
+  display: none;
+}
+.nav__item_reserveren{
+  font-size: 1.8rem;
+  text-decoration: underline;
+}
+.nav__close,
+.toggle__menu {
+  cursor: pointer;
+  color: hsl(var(--text-color));
+  font-size: 3.2rem;
+}
+.mobile__nav{
+  z-index: 100;
+}
+
+/* .mobile__menu{
+  color: var(--body-txt);
+  font-size: 1.8rem;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 1.6rem;
+  cursor: pointer;
+  z-index: 100;
+} */
+
+/* .nav__list{
+  font-family: "DM Sans", sans-serif;
+  list-style: none;
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 60%;
+  height: 100vh;
+  background-color: hsla(0, 0%, 10%, 1);
+  padding: 12.8rem 3.2rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.4rem;
+  z-index: 50;
+  transform: translateX(50%);
+  transition: transform 350ms;
+  font-size: 1.2rem;
+} */
+
+
+.open .nav__close{
+  display: block;
+}
+.open .toggle__menu{
+  display: none;
+}
+.nav__list.open{
+  transform: translateX(0)
+} 
+/* .make-reservation{
+  display: block;
+  padding-top: 3.2rem;
+} */
+.mob-phone,
+.cellphone{
+  display: inline-block;
+  color: #fff;
+  font-size: 1.6rem;
+  margin: 1rem 1rem 0 0;
+  
+}
+/* .nav__link{
+  display: block;
+  color: #fff;
+  text-transform: capitalize;
+  letter-spacing: 2px;
+  margin-right: -2px;
+} */
+
+
+/* ************************************** */
+/* ---------- | HERO SECTION | ---------- */
+/* ************************************** */
+.hero {
+  height: 100%;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background: url(../images/copperno4_bg.jpg);
+  box-shadow: inset 0 0 0 2000px rgba(0, 0, 0, 0.65);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
+.hero .container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.hero-logo-img {
+  width: 175px;
+  margin: 6.4rem 0 3.2rem;
+  font-weight: normal;
+}
+.hero-content {
+  font-family: "Spectral";
+  text-align: center;
+}
+.hero-text {
+  font-size: 3.2rem;
+  letter-spacing: -2px;
+  text-transform: uppercase;
+  /* width: 15ch; */
+  line-height: 1.4;
+  font-family: var(--body-ff);
+  margin: 0 auto;
+} 
+.hero-content-text {
+  text-align: center;
+  font-size: 1.6rem;
+  letter-spacing: -1px;
+  margin-top: 3.2rem;
+  font-family: var(--body-ff);
+  line-height: 1.4;
+}
+.hero-btn {
+  margin: 6.4rem auto;
+  display: block;
+  background-color: var(--primary-color);
+  color: black;
+  font-weight: bold;
+}
+
+/* ---------- | SOCIAL MEDIA ICONS | ---------- */
+.social-media {
+  display: none;
+  gap: 2rem;
+  flex-direction: column;
+  font-size: 2.5rem;
+  position: absolute;
+  top: 40%;
+  padding: 0 8%;
+}
+.social-media a {
+  color: var(--primary-color);
+}
+.social-media .tile {
+  background-color: var(--bg-color);
+  width: 100px;
+  height: 100px;
+  border-radius: 10%;
+  padding: 1rem;
+  box-shadow: 0 0 5px 1px #ffffff91;
+  color: #fff;
+}
+
+
+/* ---------- | SECTION RESTAURANT | ---------- */
+.restaurant .container {
+  padding: 0 1.6rem;
+}
+.restaurant-wrapper {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+.welcome-text {
+  text-align: left;
+}
+.welcome-text .logo,
+.restaurant .logo {
+  font-size: 3.2rem;
+  text-align: center;
+  margin-top: 1.6rem
+}
+.welcome-text p{
+  padding-bottom: 1.6rem;
+}
+.restaurant-text {
+  text-align: left;
+}
+.restaurant-text p{
+  padding-bottom: 1.6rem;
+}
+.restaurant-img {
+  height: 300px;
+  width: 100%;
+  object-fit: cover;
+}
+
+
+/* ---------- | SECTION MENU | ---------- */
+.menu {
+  font-family: sans-serif;
+  font-size: 18px;
+}
+
+.menu-group-heading {
+  margin: 0;
+  text-align: left;
+  border-bottom: 2px solid #ccc;
+}
+
+.menu-group {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5em;
+  column-gap: 7.2rem;
+  padding: 1.5em 0;
+}
+.menu-item {
+  display: flex;
+}
+.menu-item-img {
+  width: 80px;
+  height: 80px;
+  flex-shrink: 0;
+  object-fit: cover;
+  margin-right: 1.5em;
+}
+.menu-item-text {
+  flex-grow: 1;
+}
+.menu-item-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0;
+}
+.menu-item-name {
+  margin-right: .8em;
+  text-transform: capitalize;
+  font-family: "Spectral";
+}
+.ellergens-icon{
+  margin-right: auto;
+}
+.menu-item-desc {
+  line-height: 1.6;
+  padding: 0;
+  max-width: 34ch;
+  font-size: 1.6rem;
+  font-family: "Spectral";
+}
+.menu-sub-text{
+  border: 2px solid var(--text-color);
+  padding: 1.2rem;
+  border-radius: 10px;
+  /* width: 80ch; */
+  margin: 1.6rem auto;
+  text-align: center;
+  font-size: 1.6rem;
+}
+.menu-restaurant-image-container{
+  display: grid;
+  /* grid-template-columns: 1fr; */
+  gap: 1.6rem;
+  margin-top: 6.4rem;
+  /* object-fit: cover;
+  width: 100%;
+  height: 100%; */
+}
+
+/* ---------- | SECTION ALLEGENS | ---------- */
+.ellergens h2{
+  font-size: 1.8rem;
+  text-transform: initial;
+  margin-bottom: 1.6rem;
+}
+.allergene__text{
+  font-size: 1.3rem;
+}
+.allergens__items{
+  gap: .8rem
+
+}
+.allergens__items, .allergens__item{
+  display: flex;
+}
+.allergens__item{
+  flex-direction: column;
+  align-items: center;
+}
+.allergens__items > li{
+  flex: 1 1 60px;
+}
+.tabs__topbar {
+  display: flex;
+  gap: 1.6rem;
+}
+.btn--primary {
+  background-color: transparent;
+  border: 2px solid var(--primary-color);
+  transition: all 300ms;
+}
+
+.tabs__button--active {
+  background-color: var(--primary-color);
+}
+
+.tabs__content {
+  /* width: fit-content; */
+  margin-top: 3.2rem;
+  border-radius: 5px;
+  /* padding: 3.2rem 6.4rem; */
+  font-size: 1.8rem;
+  /* background-color: #070504; */
+  /* background-color: hsl(0, 2%, 14%); */
+  display: none;
+}
+.tabs__content--active {
+  display: block;
+}
+.tabs__content__list {
+  display: grid;
+}
+.tabs__content__list img {
+  width: 200px;
+}
+.tabs__content h3 {
+  font-size: 2.2rem;
+  font-weight: bold;
+  /* margin-bottom: 3.2rem; */
+  /* text-align: center; */
+}
+.tabs__content ul {
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* ---------- | SECTION FEESTZAAL | ---------- */
+.feestzaal-image-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.6rem;
+}
+.grid-item > img {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  border-radius: 4px;
+}
+.contact{
+  border-bottom: 1px dashed var(--text-color);
+}
+.feestzaal h4{
+  text-align: center;
+  font-size: 1.8rem;
+}
+.feestzaal-text p{
+  margin-bottom: 1.6rem;
+}
+
+
+
+/* ---------- | SECTION DEN OUDE HERBERG | ---------- */
+.denoudeherberg h2 {
+  font-size: 3.2rem;
+  text-align: center;
+}
+.denoudeherberg h4 {
+  font-size: 1.4rem;
+  text-align: center;
+}
+.denoudeherberg p{
+  margin-bottom: 1.6rem;
+}
+.website-dob-link {
+  color: hsl(var(--text-color));
+  border-bottom: 1px dashed;
+}
+.mergellandroute-link {
+  font-style: italic;
+}
+.website-dob-link:hover {
+  border: none;
+}
+.mergellandroute-link {
+  border: 2px solid hsl(var(--text-color));
+}
+.denoudeherberg-image-container {
+  display: flex;
+  gap: 1.6rem;
+}
+.denoudeherberg-image-container img {
+  /* transition: all 250ms; */
+  object-fit: cover;
+  height: 100%;
+  width: 100%;
+  border-radius: 4px;
+}
+.image {
+  position: relative;
+  transition: all 400ms;
+}
+
+.image-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 350ms;
+}
+.image-overlay > * {
+  transform: translateY(20px);
+  transition: transform 350ms;
+}
+.image-overlay:hover {
+  opacity: 1;
+}
+.image-overlay:hover > * {
+  transform: translateY(0px);
+}
+.book,
+.website-dob {
+  color: hsl(var(--text-color));
+  border: 3px solid var(--text-color);
+  border-radius: 100px;
+  padding: 1rem 1.6rem;
+  font-size: 1.6rem;
+  text-transform: uppercase;
+  font-family: "DM Sans";
+  display: block;
+}
+
+
+/* ---------- | SECTION DENOUDEHERBERG | ---------- */
+.denoudeherberg .container {
+  padding: 0 1.6rem;
+}
+.denoudeherberg-image-container {
+  display: grid;
+}
+
+
+/* ---------- | SECTION FOOTER | ---------- */
+footer {
+  background-color: hsl(0, 0%, 0%);
+  background-position: center;
+  padding: 10rem 0 0 0;
+  position: relative;
+}
+.footer-column-heading {
+  font-size: 2rem;
+  font-family: "DMsans-thin", sans-serif;
+  margin-bottom: 2.4rem;
+  text-transform: uppercase;
+}
+.footer-column-heading::after {
+  content: "";
+  display: block;
+  width: 28px;
+  height: 2px;
+  background-color: #864d37;
+}
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  /* justify-content: space-between; */
+  /* align-items: flex-start; */
+}
+.footer-column-content a {
+  color: var(--text-color);
+}
+.phone-number,
+.email {
+  font-size: 2.4rem;
+  font-family: var(--body-ff);
+  letter-spacing: -1px;
+}
+.row .email {
+  color: var(--primary-color);
+}
+.visiting-location > * {
+  font-size: 2.4rem;
+  font-family: var(--body-ff);
+}
+.footer-bottom {
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+  /* flex-wrap: wrap; */
+  /* width: 100%; */
+  /* border-top: 1px solid #141414;
+  border-bottom: 1px solid #141414; */
+  /* padding: 3.2rem; */
+  margin-block-end: 6rem;
+}
+.footer-menu {
+  display: flex;
+  /* flex-wrap: wrap; */
+  flex-direction: column;
+  /* justify-content: center; */
+  font-size: 2em;
+  /* gap: 6.4rem; */
+}
+.footer-menu a {
+  color: var(--text-color);
+}
+
+/* ----- CONTACT ----- */
+
+/* ----- OPENINGHOURS ----- */
+.openinghours {
+  font-size: 2.4rem;
+}
+.openinghours p {
+  font-size: 2.4rem;
+  letter-spacing: 1px;
+}
+.daysofweek span {
+  width: 165px;
+  display: inline-block;
+  font-size: 2.4rem;
+}
+
+/* --------- SOCIAL MEDIA ---------- */
+.footer-social-media {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+.footer-social-media a {
+  color: var(--text-color);
+}
+
+.phone-number-mobile {
+  display: none;
+}
+.copyright {
+  font-size: small;
+  text-align: center;
+  color: rgb(68, 68, 68);
+}
+
+/* ----------------------------- */
+/* ----------------------------- */
+/* ----------------------------- */
+/* MOBILE VERSION SECTION FOOTER */
+footer {
+  padding: 5rem 0 0 0;
+}
+footer .container {
+  padding: 0 1.6rem;
+}
+/* #locatie h2 {
+  font-size: 2.8rem;
+} */
+.phone-number,
+.visiting-location div {
+  font-size: 2rem;
+}
+.daysofweek span {
+  width: 155px;
+  display: inline-block;
+  font-size: 2rem;
+}
+.footer-social-media {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+.copyright {
+  font-size: 1rem;
+  text-align: center;
+  color: rgb(68, 68, 68);
+}
+
+
+
+/* (min-width: 435px)  >  STARTING FROM  */
+/* (max-width: 435px)  >  UP TO WIDTH    */
+
+/* MOBILE (FIRST) -> [SCREEN SIZE: 375px] */
+
+
+/* NAVIGATION FOR MOBILE SCREENS AND IPAD */
+@media screen and (min-width: 375px) {
+  /* .container {
+    padding-inline: 4rem;
+  } */
+  
+
+  /* ************************************** */
+  /* ---------- | SECTION HERO | ---------- */
+  /* ************************************** */
+  /* section.hero{
+    height: 100%;
+  } */
+  .menu__toggle {
+    display: flex;
+  }
+  .hero__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+  }
+  .hero__img {
+    width: 250px;
+  }
+  .hero__content h1 {
+    margin-block-start: 8rem;
+    font-size: 2rem;
+  }
+  .hero__content p {
+    font-size: 1.6rem;
+    margin-block-end: 2rem;
+  }
+  .hero-text {
+    width: 15ch;
+  }
+  .btn{
+    font-size: 1.8rem;
+  }
+}
+
+/* LARGE MOBILES -> [SCREEN SIZE > 425px] */
+@media (min-width: 425px){
+  .hero-text {
+    width: 15ch;
+  } 
+}
+
+
+/* ************************************* */
+/* TABLET STYLES -> [SCREENSIZE > 768px] */
+@media screen and (min-width: 768px) {
+  h2{
+    font-size: 4rem;
+  }
+  .toggle__menu{
+    display: none;
+  } 
+  .nav__list{
+    backdrop-filter: none;
+    position: initial;
+    width: initial;
+    height: initial;
+    padding: 0;
+    background-color: transparent;
+    flex-direction: row;
+    align-items: center;
+    gap: 2.4rem;
+    transform: initial;
+  }
+  /* .nav__item:nth-last-child(2){
+    background-color: tomato;
+    padding: 0; 
+  } */
+  .make-reservation{
+    display: none;
+    visibility: hidden;
+    opacity: 0;
+  }
+  .nav__menu {
+    background-color: transparent;
+    position: static;
+    backdrop-filter: initial;
+    padding: 0;
+    box-shadow: none;
+  }
+  .nav__close,
+  .toggle__menu {
+    display: none;
+  }
+  /* .menu-restaurent-image-container {
+    grid-template-columns: 2fr;
+} */
+
+  /* ************************************** */
+  /* ---------- | SECTION HERO | ---------- */
+  /* ************************************** */
+  .hero-content-text{
+    width: 40ch;
+    margin: 3.2rem auto;
+  }
+  .social-media {
+    display: flex;
+  }
+
+  /* ******************************************** */  
+  /* ---------- | SECTION RESTAURANT | ---------- */
+  /* ******************************************** */  
+  .restaurant-wrapper {
+    display: grid;
+    grid-template-columns: 400px 1fr;
+    grid-template-rows: 375px 375px;
+    background-color: hsl(0, 2%, 14%);
+  }
+  .welcome-text {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 300px;
+    margin: 0 auto;
+    line-height: 1.5;
+  }
+  .restaurant-img {
+    grid-column: 1 / 3;
+    grid-row: 2 / 3;
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+    opacity: .4;
+  }
+  .kornuiten {
+    grid-column: 2 / 3;
+    grid-row: 1 / 2;
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+  }
+  .restaurant-text {
+    text-align: center;
+    grid-column: 1 / 3;
+    grid-row: 2 / 3;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    z-index: 100;
+    padding: 0 4rem;
+    line-height: 1.5;
+    /* margin: 2.8rem auto; */
+    /* width: 850px; */
+  }
+  .restaurant-image {
+    width: 100px;
+    object-fit: contain;
+    object-position: 100px 100px;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+  }
+  .restaurant-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .restaurant-img-container {
+    grid-column: 2 / 3;
+    grid-row: 1 / 2;
+  }
+  .menu-restaurant-image-container{
+    grid-template-columns: repeat(2, 1fr);
+  }
+  /* ******************************************* */
+  /* ---------- | SECTION FEESTZAAL | ---------- */
+  /* ******************************************* */
+  .feestzaal-image-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+
+  /* ************************************************** */
+  /* ---------- | SECTION DEN OUDE HERBERG | ---------- */
+  /* ************************************************** */
+  .denoudeherberg-image-container {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: max-content;
+  }
+  .denoudeherberg-image-container:hover .image:not(:hover){
+    opacity: .5;
+  }  
+
+
+  /* **************************************** */
+  /* ---------- | SECTION FOOTER | ---------- */
+  /* **************************************** */
+  
+}
+
+
+  .tabs__topbar {
+    flex-wrap: wrap;
+  }
+  /* NAVIGATION */
+
+  .nav-list {
+    display: none;
+  }
+  .mobile-nav {
+    display: block;
+    cursor: pointer;
+    font-size: 2.4rem;
+  }
+  .phone-number-mobile {
+    display: block;
+    position: absolute;
+    right: 80px;
+    top: 17px;
+    color: var(--text-color);
+    font-size: 1.8rem;
+    border-right: 2px solid var(--text-color);
+    padding-right: 1.6rem;
+  }
+  .mobile-nav .close-btn {
+    display: none;
+  }
+
+
+  
+  /* ************************************** */
+  /* ---------- | SECTION MENU | ---------- */
+  /* ************************************** */
+
+  /* } */
+  .footer-column {
+    margin-bottom: 5rem;
+    flex-basis: 375px;
+  }
+  /* .footer-menu {
+    gap: 1rem;
+  }
+  .footer-column-heading {
+    gap: 1.4rem;
+  } */
+
+  
+/* ***************************************************** */
+/* LARGE TABLETS & LAPTOP STYLES -> [SCREENSIZE: 1024px] */
+@media screen and (min-width: 1024px) {
+  /* ************************************** */
+  /* ---------- | SECTION HERO | ---------- */
+  /* ************************************** */
+  .hero-logo-img{
+    width: 275px;
+  }
+  .hero-text {
+    font-size: 4.8rem;
+  }
+  .hero-content-text{
+    font-size: 2rem;
+  }
+  /* .nav__item_reserveren{
+    display: none;
+  } */
+  /* ******************************************** */
+  /* ---------- | SECTION RESTAURANT | ---------- */
+  /* ******************************************** */
+
+
+  /* ************************************** */
+  /* ---------- | SECTION MENU | ---------- */
+  /* ************************************** */
+  .menu {
+    font-size: 16px;
+  }
+  .menu-group {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .menu-item-img {
+    width: 125px;
+    height: 125px;
+  }
+  .menu-restaurant-image-container{
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+
+  /* ************************************************** */
+  /* ---------- | SECTION DEN OUDE HERBERG | ---------- */
+  /* ************************************************** */
+  .denoudeherberg h2 {
+    font-size: 4rem;
+  }
+  .denoudeherberg-image-container {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  
+  
+  /* ******************************************* */
+  /* ---------- | SECTION FEESTZAAL | ---------- */
+  /* ******************************************* */
+  h4{
+    text-align: center;
+    font-size: 2.4rem;
+  }
+  .feestzaal-wrapper{
+    display: flex;
+    gap: 3.2rem;
+  }
+  .feestzaal-image-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.6rem;
+  }
+  
+  /* **************************************** */
+  /* ---------- | SECTION FOOTER | ---------- */
+  /* **************************************** */
+  .row{
+    justify-content: space-around;
+  }
+}
+
+/* LARGE LAPTOP & DESKTOP STYLES -> [SCREENSIZE > 1440px] */
+@media (min-width: 1440px) {
+  section{
+    padding: 15rem 0;
+    scroll-margin-top: 0rem;
+  }
+
+
+  /* SECTION HERO */
+  .hero-text {
+    font-size: 6.4rem;
+    letter-spacing: -2px;
+    text-transform: uppercase;
+    font-family: var(--body-ff);
+  }
+  .hero-logo-img {
+    width: 300px;
+    margin-bottom: 12.8rem;
+    font-weight: normal;
+  }
+  .hero-content-text{
+    font-size: 2.8rem;
+    font-family: var(--body-ff);
+    letter-spacing: .5px;
+  }
+
+  /* **************************************** */
+  /* ---------- | SECTION HEADER | ---------- */
+  /* **************************************** */
+  .logo{
+    font-size: 4rem;
+  }
+
+
+  /* ******************************************** */
+  /* ---------- | SECTION RESTAURANT | ---------- */
+  /* ******************************************** */
+  .restaurant-wrapper{
+    display: grid;
+    grid-template-columns: 400px 1fr;
+    grid-template-rows: 375px 375px;
+    background-color: hsl(0, 2%, 14%);
+  }
+  .welcome-text{
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 300px;
+    margin: 0 auto;
+    line-height: 1.8;
+  }
+  .restaurant-img{
+    grid-column: 1 / 2;
+    grid-row: 2 / 3;
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+    opacity: 1;
+  }
+  .kornuiten{
+    grid-column: 2 / 3;
+    grid-row: 1 / 2;
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+  }
+  .restaurant-text{
+    text-align: center;
+    grid-column: 2 / 3;
+    grid-row: 2 / 3;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 2.8rem auto;
+    line-height: 1.8;
+  }
+  .restaurant-image{
+    object-fit: contain;
+    object-position: 100px 100px;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+  }
+  .restaurant-img-container{
+    grid-column: 2 / 3;
+    grid-row: 1 / 2;
+  }
+  
+  /* ---------- | SECTION MENU | ---------- */
+  .menu{
+    font-family: "Spectral";
+  }
+  .menu__item{
+    margin-bottom: 2.4rem;
+    position: relative;
+  }
+  .menu-group{
+    margin-bottom: 3.2rem;
+    row-gap: 0px;
+  }
+  .menu__heading{
+    display: flex;
+    justify-content: space-between;
+  }
+  .menu__item-name, .menu__item-price{
+    font-size: 2.4rem;
+  }
+  .menu__item-subtext{
+    font-size: 1.6rem;
+    letter-spacing: -.5px;
+    display: block;
+    position: relative;
+    top: -15px;
+  }
+  .grid-item1 img{
+    border-radius: 4px;
+  }
+  .allergene__text{
+    font-size: 1.3rem;
+  }
+  .allergens__items, .allergens__item{
+    display: flex;
+  }
+  .allergens__item{
+    flex-direction: column;
+    align-items: center;
+  }
+
+
+  /* ---------- | SECTION FEESTZAAL | ---------- */
+  .feestzaal-image-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.6rem;
+  }
+  .feestzaal-text p{
+    margin-bottom: 1.6rem;
+  }
+
+
+  /* ---------- | SECTION DEN OUDE HERBERG | ---------- */
+
+  /* ---------- | SECTION FOOTER | ---------- */
+  footer{
+    padding: 10rem 0 0;
+  }
+  .row{
+    flex-wrap: nowrap;
+  }
+  .copyright{
+    margin: 3.2rem 0 0;
+  }
+}
